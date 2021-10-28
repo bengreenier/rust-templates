@@ -41,7 +41,7 @@ jobs:
       #
       # Then we install tools, and use `just test` to confirm things work
       - run: |
-          mv ${{ format('{0}_{1}', matrix.template, matrix.type) }} ${{ runner.temp }}/
+          mv ${{ github.workspace }}/${{ format('{0}_{1}', matrix.template, matrix.type) }} ${{ runner.temp }}/
           cd ${{ runner.temp }}/${{ format('{0}_{1}', matrix.template, matrix.type) }}
           cargo install just
           just install-tools
