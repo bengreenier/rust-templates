@@ -1,0 +1,48 @@
+# This is a basic workflow to ensure the templates scaffold, build, and pass tests.
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull_request and push but only when the target is the main branch
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  validate_template:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template: ["single_crate", "workspace"]
+        type: ["lib", "bin"]
+        version: ["0.1.0"]
+        description: ["validation test project"]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checkout our code
+      - uses: actions/checkout@v2
+      # Use the official generate action to scaffold
+      - uses: cargo-generate/cargo-generate-action@v0.10.1
+        with:
+          name: ${{ format('{0}_{1}', matrix.template, matrix.type) }}
+          subfolder: ${{ matrix.template }}
+          other: ${{ format('--{0} --define version={1} --define description={2}', matrix.type, matrix.version, matrix.description) }}
+      # we need to move the generated project to a temp folder, away from the template project
+      # otherwise `cargo` runs would fail
+      # see https://github.com/rust-lang/cargo/issues/9922
+      #
+      # Then we install tools, and use `just test` to confirm things work
+      - run: |
+          mv $PROJECT_NAME ${{ runner.temp }}/
+          cd ${{ runner.temp }}/$PROJECT_NAME
+          cargo install just
+          just install-tools
+          just test
