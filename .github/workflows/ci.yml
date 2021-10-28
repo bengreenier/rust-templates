@@ -34,7 +34,7 @@ jobs:
         with:
           name: ${{ format('{0}_{1}', matrix.template, matrix.type) }}
           subfolder: ${{ matrix.template }}
-          other: ${{ format('--{0} --define version={1} --define description={2}', matrix.type, matrix.version, matrix.description) }}
+          other: ${{ format('--{0} --define version="{1}" --define description="{2}"', matrix.type, matrix.version, matrix.description) }}
       # we need to move the generated project to a temp folder, away from the template project
       # otherwise `cargo` runs would fail
       # see https://github.com/rust-lang/cargo/issues/9922
