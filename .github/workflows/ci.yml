@@ -23,7 +23,7 @@ jobs:
         template: ["single_crate", "workspace"]
         type: ["lib", "bin"]
         version: ["0.1.0"]
-        description: ["validation test project"]
+        description: ["desc"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
