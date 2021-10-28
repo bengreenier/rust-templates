@@ -1,0 +1,12 @@
+[template]
+cargo_generate_version = "0.10.3"
+
+[placeholders]
+description = { type = "string", prompt = "Describe this crate:" }
+version = {type = "string", prompt = "What's the starting version?", default = "0.1.0"}
+
+[conditional.'crate_type == "lib"']
+ignore = ["src/main.rs"]
+
+[conditional.'crate_type == "bin"']
+ignore = ["src/lib.rs"]
