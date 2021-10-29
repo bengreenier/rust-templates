@@ -3,10 +3,16 @@
 
 _default:
     @just --list
-    
+
+{% if workspace %}
+# Installs tools needed for other `just` recipes
+install-tools:
+    cargo install cargo-hack cargo-bump cargo-workspaces
+{% else %}
 # Installs tools needed for other `just` recipes
 install-tools:
     cargo install cargo-hack cargo-bump
+{% endif %}
 
 # Checks (using `clippy`) all crates across all features
 check:
@@ -20,6 +26,12 @@ test:
 set-version version:
     cargo bump {{version}}
 
+{% if workspace %}
+# Attempts to publish the crate using `cargo workspaces`
+publish:
+    cargo workspaces publish --from-git --no-git-commit --no-git-push --no-git-tag -y 
+{% else %}
 # Attempts to publish the crate using `cargo`
 publish:
     cargo publish
+{% endif %}

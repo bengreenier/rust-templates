@@ -10,8 +10,8 @@ Cargo.lock
 **/*.rs.bk
 
 # Ignore CI-created directories in case you're running CI locally with act
-single-crate-bin/
-single-crate-lib/
+basic-bin-true/
+basic-bin-false/
+basic-lib-true/
+basic-lib-false/
 workflow/
-workspace-bin/
-workspace-lib/
