@@ -46,3 +46,5 @@ If you use these templates repeatedly, be sure to [favorite them](https://crates
 ## Supporting the project
 
 If this project saved you some time, and you'd like to see it continue to be invested in, consider [buying me a coffee. ☕](https://www.buymeacoffee.com/bengreenier)
+
+Also, the setup here is largely inspired by [Amos' post: My ideal Rust workflow](https://fasterthanli.me/articles/my-ideal-rust-workflow) consider [supporting them too](https://www.patreon.com/fasterthanlime).
