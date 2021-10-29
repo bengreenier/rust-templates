@@ -12,12 +12,12 @@ What you get:
 
 > First make sure you've done: `cargo install cargo-generate`.
 
-### single_crate
+### single-crate
 
 > Use this template for single crate repositories.
 
 ```
-cargo generate bengreenier/rust-templates.git single_crate
+cargo generate bengreenier/rust-templates.git single-crate
 ```
 
 ### workspace

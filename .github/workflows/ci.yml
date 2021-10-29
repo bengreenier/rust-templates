@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        template: ["single_crate", "workspace"]
+        template: ["single-crate", "workspace"]
         type: ["lib", "bin"]
         version: ["0.1.0"]
         description: ["desc"]
