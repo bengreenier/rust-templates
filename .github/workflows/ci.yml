@@ -42,7 +42,8 @@ jobs:
       # see https://github.com/rust-lang/cargo/issues/9922
       #
       # Then we install tools, and use `just test` to confirm things work
-      - run: |
+      - name: "validate scaffolded project"
+        run: |
           mv ${{ env.NAME }} ${{ runner.temp }}/
           cd ${{ runner.temp }}/${{ env.NAME }}
           cargo install just
