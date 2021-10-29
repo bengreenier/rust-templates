@@ -1,5 +1,7 @@
 # rust-templates
 
+[![CI](https://github.com/bengreenier/rust-templates/actions/workflows/ci.yml/badge.svg)](https://github.com/bengreenier/rust-templates/actions/workflows/ci.yml)
+
 Templates for creating rust projects with a GitHub-managed lifecycle with cargo-generate. 🏗️📃
 
 What you get:
