@@ -9,7 +9,7 @@ What you get:
 - PR build validation.
 - Automated Release PR generation using [release-please](https://github.com/googleapis/release-please).
 - Automated crates.io publishing (after merging a Release PR).
-- [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates) daily scans and automated dependency update PR generation.
+- [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates) automated dependency update PR generation.
 
 ## Quickstart
 
