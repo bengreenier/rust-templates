@@ -6,22 +6,17 @@ Templates for creating rust projects with a GitHub-managed lifecycle with cargo-
 
 What you get:
 
-- PR build validation.
-- Automated Release PR generation using [release-please](https://github.com/googleapis/release-please).
-- Automated crates.io publishing (after merging a Release PR).
-- [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates) automated dependency update PR generation.
+- PR build validation using `cargo`. ⚙️
+- Automated Release PR generation using [release-please](https://github.com/googleapis/release-please). 🚢
+- Automated crates.io publishing (after merging a Release PR). 🦀
+- [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates) automated dependency update PR generation. 🎁
+- A [toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file) for automatic rust toolchain configuration. 🏗️
+- A `justfile` for common developer actions - for use with the excellent [just command runner](https://github.com/casey/just). 🧑‍💻
+- The [MIT License](https://mit-license.org/). 📝
 
 ## Quickstart
 
 > First make sure you've done: `cargo install cargo-generate`.
-
-### Prerequisites
-
-For publishing to crates.io:
-
-- Create an API access token [here](https://crates.io/me).
-- Add it as a [GitHub repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CARGO_REGISTRY_TOKEN`.
-- `.github/release.yml` will use this secret when publishing a release.
 
 ### single-crate
 
@@ -39,7 +34,15 @@ cargo generate bengreenier/rust-templates.git single-crate
 cargo generate bengreenier/rust-templates.git workspace
 ```
 
-## Favorites
+## Configuration
+
+### For publishing to crates.io:
+
+- Create an API access token [here](https://crates.io/me).
+- Add it as a [GitHub repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CARGO_REGISTRY_TOKEN`.
+- `.github/release.yml` will use this secret when publishing a release.
+
+### Favorites
 
 If you use these templates repeatedly, be sure to [favorite them](https://crates.io/crates/cargo-generate#favorites) for quicker access!
 
