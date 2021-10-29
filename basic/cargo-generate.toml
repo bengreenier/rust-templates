@@ -5,6 +5,7 @@ cargo_generate_version = ">=0.10.1"
 gh-account = {type = "string", prompt = "What GitHub account will own this project?"}
 description = { type = "string", prompt = "Describe this crate" }
 version = {type = "string", prompt = "What's the starting version?", default = "0.1.0"}
+workspace = {type = "bool", prompt = "Is this a workspace with a root crate?", default = false}
 
 [conditional.'crate_type == "lib"']
 ignore = ["src/main.rs"]

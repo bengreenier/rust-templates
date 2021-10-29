@@ -24,8 +24,9 @@ jobs:
         version: ["0.1.0"]
         description: ["desc"]
         gh_account: ["bengreenier"]
+        workspace: [true, false]
     env:
-      NAME: ${{ format('{0}-{1}', matrix.template, matrix.type) }}
+      NAME: ${{ format('{0}-{1}-{2}', matrix.template, matrix.type, matrix.workspace) }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,7 +37,7 @@ jobs:
         with:
           name: ${{ env.NAME }}
           subfolder: ${{ matrix.template }}
-          other: ${{ format('--{0} --define version={1} --define description={2} --define gh-account={3}', matrix.type, matrix.version, matrix.description, matrix.gh_account) }}
+          other: ${{ format('--{0} --define version={1} --define description={2} --define gh-account={3} --define workspace={4}', matrix.type, matrix.version, matrix.description, matrix.gh_account, matrix.workspace) }}
       # we need to move the generated project to a temp folder, away from the template project
       # otherwise `cargo` runs would fail
       # see https://github.com/rust-lang/cargo/issues/9922
@@ -44,6 +45,7 @@ jobs:
       # Then we install tools, and use `just test` to confirm things work
       - name: "validate scaffolded project"
         run: |
+          exit 1
           mv ${{ env.NAME }} ${{ runner.temp }}/
           cd ${{ runner.temp }}/${{ env.NAME }}
           cargo install just
