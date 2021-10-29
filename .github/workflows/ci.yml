@@ -45,7 +45,6 @@ jobs:
       # Then we install tools, and use `just test` to confirm things work
       - name: "validate scaffolded project"
         run: |
-          exit 1
           mv ${{ env.NAME }} ${{ runner.temp }}/
           cd ${{ runner.temp }}/${{ env.NAME }}
           cargo install just
