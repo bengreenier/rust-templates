@@ -24,6 +24,8 @@ jobs:
         type: ["lib", "bin"]
         version: ["0.1.0"]
         description: ["desc"]
+    env:
+      NAME: ${{ format('{0}-{1}', matrix.template, matrix.type) }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,7 +34,7 @@ jobs:
       # Use the official generate action to scaffold
       - uses: cargo-generate/cargo-generate-action@v0.10.1
         with:
-          name: ${{ format('{0}_{1}', matrix.template, matrix.type) }}
+          name: ${{ env.NAME }}
           subfolder: ${{ matrix.template }}
           other: ${{ format('--{0} --define version="{1}" --define description="{2}"', matrix.type, matrix.version, matrix.description) }}
       # we need to move the generated project to a temp folder, away from the template project
@@ -41,8 +43,11 @@ jobs:
       #
       # Then we install tools, and use `just test` to confirm things work
       - run: |
-          mv ${{ github.workspace }}/${{ format('{0}_{1}', matrix.template, matrix.type) }} ${{ runner.temp }}/
-          cd ${{ runner.temp }}/${{ format('{0}_{1}', matrix.template, matrix.type) }}
+          mv ${{ env.NAME }} ${{ runner.temp }}/
+          cd ${{ runner.temp }}/${{ env.NAME }}
           cargo install just
           just install-tools
           just test
+      # Cleanup after ourselves if running locally
+      - run: rm -rf ${{ runner.temp }}/${{ env.NAME }}
+        if: ${{ env.ACT }}
