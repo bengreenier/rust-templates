@@ -6,9 +6,10 @@ Templates for creating rust projects with a GitHub-managed lifecycle with cargo-
 
 What you get:
 
-- PR build validation
-- Automated Release PR generation using [release-please](https://github.com/googleapis/release-please)
-- Automated crates.io publishing (after merging a Release PR)
+- PR build validation.
+- Automated Release PR generation using [release-please](https://github.com/googleapis/release-please).
+- Automated crates.io publishing (after merging a Release PR).
+- [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates) daily scans and automated dependency update PR generation.
 
 ## Quickstart
 
@@ -18,9 +19,9 @@ What you get:
 
 For publishing to crates.io:
 
-- Create an API access token [here](https://crates.io/me)
-- Add it as a [GitHub repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CARGO_REGISTRY_TOKEN`
-- `.github/release.yml` will use this secret when publishing a release
+- Create an API access token [here](https://crates.io/me).
+- Add it as a [GitHub repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CARGO_REGISTRY_TOKEN`.
+- `.github/release.yml` will use this secret when publishing a release.
 
 ### single-crate
 
