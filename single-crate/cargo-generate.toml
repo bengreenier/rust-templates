@@ -3,7 +3,7 @@ cargo_generate_version = ">=0.10.1"
 
 [placeholders]
 gh-account = {type = "string", prompt = "What GitHub account will own this project?"}
-description = { type = "string", prompt = "Describe this crate:" }
+description = { type = "string", prompt = "Describe this crate" }
 version = {type = "string", prompt = "What's the starting version?", default = "0.1.0"}
 
 [conditional.'crate_type == "lib"']
