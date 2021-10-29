@@ -12,6 +12,14 @@ What you get:
 
 > First make sure you've done: `cargo install cargo-generate`.
 
+### Prerequisites
+
+For publishing to crates.io:
+
+- Create an API access token [here](https://crates.io/me)
+- Add it as a [GitHub repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CARGO_REGISTRY_TOKEN`
+- `.github/release.yml` will use this secret when publishing a release
+
 ### single-crate
 
 > Use this template for single crate repositories.
