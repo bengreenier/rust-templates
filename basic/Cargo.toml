@@ -1,7 +1,7 @@
 [package]
 name = "{{crate_name}}"
 description = "{{description}}"
-license = "mit"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
