@@ -18,21 +18,17 @@ What you get:
 
 > First make sure you've done: `cargo install cargo-generate`.
 
-### single-crate
+### basic
 
-> Use this template for single crate repositories.
-
-```
-cargo generate bengreenier/rust-templates.git single-crate
-```
-
-### workspace
-
-> Use this template for [rust workspace](https://doc.rust-lang.org/cargo/reference/workspaces.html) projects that will produce multiple crates.
+> Use this template for basic rust projects. E.g. A single crate binary or lib, a workspace with a root crate.
 
 ```
-cargo generate bengreenier/rust-templates.git workspace
+cargo generate bengreenier/rust-templates.git basic
 ```
+
+### Others
+
+Coming soon - [Suggest a template](https://github.com/bengreenier/rust-templates/issues/new).
 
 ## Configuration
 
